@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link rel='stylesheet' href="{% static 'proj/css/create.css'%}">
+</head>
+<body>
+    <a href='/'>Back</a>
+<div>
+    <h1>Create</h1>
+    <form method="post">
+        {% csrf_token %}
+        <table>{{ form }}</table>
+    <div>
+        <button>Create</button>
+    </div>    
+</form>
+</div>
+</body>
+</html>

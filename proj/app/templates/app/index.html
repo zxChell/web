@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel='stylesheet' href="{% static 'proj/css/styles.css'%}">
+</head>
+<body>
+    <header>
+        <div>
+            <div>
+                <div>
+                    <h1>Shop</h1>
+                        <div class="createBlock">
+                            <h1 ><a href="{% url 'create' %}">Create</a></h1>
+                        </div>
+            </div>
+            </div>
+        </div>
+    </header>    
+    <div>
+        <div>
+            <div>
+                <div>
+                    <h1>Товары</h1>
+                </div>
+                <form method="post" action="cart/">
+                    {% for product in products %}
+                    <div>
+                        <div >
+                            <img src='{{product.pic}}'>
+                        </div>
+                        <div>
+                            <h1>{{product.title}}</h1>
+                        </div>
+                        <div>
+                            <p>{{product.content}}</p>
+                        </div>
+
+                        <div class="btns__block">
+                            <a class="cart__btn__inlist" href="{% url 'product' product.id %}">About</a>
+                            <a class="cart__btn__inlist" href="{% url 'delete' product.id %}">Delete</a>
+                            <a class="cart__btn__inlist" href="{% url 'update' product.id %}">Update</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
